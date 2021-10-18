@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+<div id="show"> </div>
+
+<script>
+    let html;
+    fetch("http://localhost:8080/user/get_id")
+        .then(response =>{
+            if (!response.ok){
+                throw Error("error");
+            }
+            // console.log(response.json());
+            return response.json();
+        })
+        .then(user => {
+            html = `<div class="" style="padding-left: 40px" >
+<div class="container col-md-8 ">
+               <div class="table-responsive table-">
+                      <table class="table table-striped table-hover table-bordered table-condensed">
+                            <thead>
+                              <tr class="active">
+                                     <th>id</th>
+                                     <th>firstName</th>
+                                     <th>lastName</th>
+                                     <th>age</th>
+                                     <th>email</th>
+                                     <th >Edit</th>
+                                     <th>Delete</th>
+                                  </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td></td>
+                                <td>${user.firstName}</td>
+                                <td>${user.lastName}</td>
+                                <td>${user.age}</td>
+                                <td>${user.email}</td>
+                                <td>
+                                    <button id="MainEdit" value="value"
+                                            onclick="getUserEdit(${user.id},'${user.firstName}','${user.lastName}',${user.age},'${user.email}')"
+                                            class="btn btn-info" data-toggle="modal" data-target="#myModalEdit">Edit</button>
+<!--                                            <p class="help-link">Не трогай(</p>-->
+                                </td>
+                                <td>
+                                    <button id="MainDelete" value="value"
+                                            onclick="getUserDelete(${user.id},'${user.firstName}','${user.lastName}',${user.age},'${user.email}')"
+                                            class="btn btn-warning" data-toggle="modal" data-target="#myModalDelete">Delete</button>
+<!--                                            <p class="help-link">Не для тебя)</p>-->
+                                </td>
+                            </tr>
+                          </table>
+               </div><div style="padding-left: 643px"><a href="/logout">
+               <button  class="btn btn-danger">Logout</button></a>
+               </div>
+               </div>
+               </div>
+`
+        })
+    setTimeout(show,200)
+    function show() {
+        console.log("show")
+        document.getElementById("show").innerHTML = html;
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+<body>
+<!--верхнее черное окошко "myProject"-->
+<div class="navbar navbar-inverse navbar-fixed-top ">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">myProject</a>
+            <div class="container">
+                <ul class="nav nav-pills" role="tablist">
+                    <li class="active"><a href="#home" role="tab" data-toggle="pill">Admin</a></li>
+                    <li><a href="#profile" role="tab" data-toggle="pill">User</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="home">
+                        <div>
+                            <nav class="navbar navbar-default navbat-left jumbotron" role="navigation">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <a class="navbar-brand" href="#"></a>
+                                    </div>
+                                    <div class="container">
+                                        <ul class="nav nav-pills" role="tablist">
+                                            <li class="active"><a href="#mainTableHtml" role="tab" data-toggle="pill">User
+                                                table</a></li>
+                                            <li><a href="#MainNewUser" role="tab" data-toggle="pill">New User</a></li>
+                                            <li><a href="/logout"> logout</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active fade in" id="mainTableHtml">
+                                                <!--User table "mainTable.js" -->
+                                                <div id="mainTable">
+
+                                                </div>
+                                            </div>
+                                            <!--  новый пользователь-->
+                                            <div role="tabpanel" class="tab-pane fade" id="MainNewUser">
+
+
+                                                <div class="container">
+                                                    <form role="form" class="form-horizontal" id="MainRegister">
+                                                        <div class="form-group">
+                                                            <label for="MainEmail"
+                                                                   class="control-label col-md-2">Email</label>
+                                                            <div class="col-md-6">
+                                                                <input type="teче" class="form-control" id="MainEmail"
+                                                                       placeholder="введите email" onchange="onChangeEmail()"
+                                                                       required="required">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="MainPassword" class="control-label col-md-2">Password</label>
+                                                            <div class="col-md-6">
+                                                                <input type="password" class="form-control"
+                                                                       id="MainPassword" placeholder="введите пароль"
+                                                                       required="required">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="MainFirstName" class="control-label col-md-2">First
+                                                                Name</label>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="form-control"
+                                                                       id="MainFirstName" placeholder="введите имя"
+                                                                       required="required">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="MainLastName" class="control-label col-md-2">Last
+                                                                Name</label>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="form-control"
+                                                                       id="MainLastName" placeholder="введите фамилию"
+                                                                       required="required">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="MainAge"
+                                                                   class="control-label col-md-2">Age</label>
+                                                            <div class="col-md-6">
+                                                                <input type="number" class="form-control" id="MainAge"
+                                                                       placeholder="введите возраст"
+                                                                       required="required">
+                                                            </div>
+                                                        </div>
+
+                                                        <!--                                                        <div style="padding-left: 189px" class="col-md-6">-->
+                                                        <!--                                                            <select class="form-control ">-->
+                                                        <!--                                                                <option name="user">User</option>-->
+                                                        <!--                                                                <option name="admin">Admin</option>-->
+                                                        <!--                                                            </select>-->
+                                                        <!--                                                        </div>-->
+                                                        <br><br>
+                                                        <div style="padding-left: 189px">
+                                                            <button type="submit" class="btn btn-success">
+                                                                Регистрация
+                                                            </button>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <!--                    обо мне-->
+                    <div role="tabpanel" class="tab-pane fade" id="profile">
+                        <div>
+                            <nav class="navbar navbar-default navbat-left jumbotron" role="navigation">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <a class="navbar-brand" href="#">itProger</a>
+                                    </div>
+                                    <div class="container">
+                                        <ul class="nav nav-pills" role="tablist">
+                                            <li class="active"><a href="#messageUser" role="tab"
+                                                                  data-toggle="pill">User</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active fade in" id="messageUser">
+
+
+                                                <div id="me">
+
+
+
+
+
+
+
+
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let html;
+    fetch("http://localhost:8080/admin/get_id")
+        .then(response =>{
+            if (!response.ok){
+                throw Error("error");
+            }
+            // console.log(response.json());
+            return response.json();
+        })
+        .then(user => {
+            html = `<div class="container">
+    <div class="table-responsive table-">
+        <table class="table table-striped table-hover table-bordered table-condensed">
+            <thead>
+            <tr class="active">
+                <th>id</th>
+                <th>email</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>age</th>
+                <th >Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>${user.id}</td>
+                 <td>${user.email}</td>
+                <td>${user.firstName}</td>
+                <td>${user.lastName}</td>
+                <td>${user.age}</td>
+                <td>
+                    <button class="btn"><a href="#">Edit</a></button>
+                </td>
+                <td>
+                    <button class="btn"><a href="#">Delete</a></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+`
+            setTimeout(show,200)
+            function show() {
+                document.getElementById("me").innerHTML = html;
+            }
+        })
+</script>
+<!--модальное окно для удаления-->
+<div>
+    <div id="myModalDelete" class="modal fade" tabindex="-1">
+        <div id="DeleteModal"></div>
+    </div>
+</div>
+<!--модальное окно для обновления-->
+<div>
+    <div id="myModalEdit" class="modal fade" tabindex="-1">
+        <div id="EditModal"></div>
+    </div>
+</div>
+
+
+<script>
+    //deleteUser
+    function getUserDelete(id, firstName, lastName, age, email) {
+        let idMain, firstNameMain, lastNameMain, ageMain, emailMain;
+        idMain = id;
+        firstNameMain = firstName;
+        lastNameMain = lastName;
+        ageMain = age;
+        emailMain = email;
+
+        console.log("testDelete")
+        let html = `
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">х</button>
+                    <h4 class="modal-title">Заголовок окна</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form role="form" class="form-horizontal" id="MainDeleteFinish">
+                            <div class="form-group">
+                                <label for="MainFirstNameDelete" class="control-label col-md-2">First Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="MainFirstNameDelete" placeholder=${firstNameMain}>
+<!--                                                    <p class="help-block">Некая подсказка</p>-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="MainLastNameDelete" class="control-label col-md-2">Last Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="MainLastNameDelete" placeholder=${lastNameMain}>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="MainAgeDelete" class="control-label col-md-2">Age</label>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control" id="MainAgeDelete" placeholder=${ageMain}>
+                                    <!--                <p class="help-block">Некая подсказка</p>-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="MainEmailDelete" class="control-label col-md-2">Email</label>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" id="MainEmailDelete" placeholder=${emailMain}>
+                                    <!--                <p class="help-block">Некая подсказка</p>-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="MainPasswordDelete" class="control-label col-md-2">Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" class="form-control" id="MainPasswordDelete" placeholder=password>
+                                    <!--                <p class="help-block">Некая подсказка</p>-->
+                                </div>
+                            </div>
+<!--                            <div style="padding-left: 189px" class="col-md-6">-->
+            <!--                                <select class="form-control ">-->
+        <!--                                    <option>User</option>-->
+        <!--                                    <option>Admin</option>-->
+        <!--                                </select>-->
+        <!--                            </div>-->
+        <br><br>
+        <div style="padding-left: 189px">
+        <button type="submit" class="btn btn-success"  >Delete</button>
+
+        </div>
+        </form>
+        </div>
+
+        </div>
+        <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+        </div>
+        </div>
+        </div>
+        `
+        document.querySelector("#DeleteModal").insertAdjacentHTML("afterbegin", html);
+        editUser = document.getElementById('MainDeleteFinish');
+
+        editUser.addEventListener('submit', async function (event) {
+            event.preventDefault()
+            const deleteMethod = {
+                method: 'DELETE', // Method itself
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8' // Indicates the content
+                },
+            }
+
+            url = `http://localhost:8080/admin/${idMain}`;
+        fetch(url, deleteMethod)
+        .catch(err => console.log(err)) // Do something with the error
+        MainRedirect();
+        }
+
+    )
+    }
+
+    //editUser
+    let idMain, firstNameMain, lastNameMain, ageMain, emailMain, passwordMain;
+    let putMethod;
+    let editUser;
+
+    function getUserEdit(id, firstName, lastName, age, email, password) {
+        idMain = id;
+        firstNameMain = firstName;
+        lastNameMain = lastName;
+        ageMain = age;
+        emailMain = email;
+        passwordMain = password;
+        let html = `        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">х</button>
+                    <h4 class="modal-title">Заголовок окна</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form role="form" class="form-horizontal" id="MainEditFinish">
+                            <div class="form-group">
+                                <label for="MainFirstNameEdit" class="control-label col-md-2">First Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="MainFirstNameEdit" placeholder=${firstNameMain}>
+<!--                                                    <p class="help-block">Некая подсказка</p>-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="MainLastNameEdit" class="control-label col-md-2">Last Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="MainLastNameEdit" placeholder=${lastNameMain}>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="MainAgeEdit" class="control-label col-md-2">Age</label>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control" id="MainAgeEdit" placeholder=${ageMain}>
+                                    <!--                <p class="help-block">Некая подсказка</p>-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="MainEmailEdit" class="control-label col-md-2">Email</label>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" id="MainEmailEdit" placeholder=${emailMain}>
+                                    <!--                <p class="help-block">Некая подсказка</p>-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="MainPasswordEdit" class="control-label col-md-2">Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" class="form-control" id="MainPasswordEdit" placeholder=password>
+                                    <!--                <p class="help-block">Некая подсказка</p>-->
+                                </div>
+                            </div>
+ <!--                            <div style="padding-left: 189px" class="col-md-6">-->
+            <!--                                <select class="form-control ">-->
+        <!--                                    <option>User</option>-->
+        <!--                                    <option>Admin</option>-->
+        <!--                                </select>-->
+        <!--                            </div>-->
+        <br><br>
+        <div style="padding-left: 189px">
+        <button type="submit" class="btn btn-success"  >Edit</button>
+        </div>
+        </form>
+        </div>
+
+        </div>
+        <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+        </div>
+        </div>
+        </div>
+        `;
+        document.querySelector("#EditModal").insertAdjacentHTML("afterbegin", html);
+        editUser = document.getElementById('MainEditFinish');
+
+        editUser.addEventListener('submit', async function (event) {
+            event.preventDefault()
+            let emailEdit = document.getElementById('MainEmailEdit').value;
+            let passwordEdit = document.getElementById('MainPasswordEdit').value;
+            let firstNameEdit = document.getElementById('MainFirstNameEdit').value;
+            let lastNameEdit = document.getElementById('MainLastNameEdit').value;
+            let ageEdit = document.getElementById('MainAgeEdit').value;
+
+            const someData = {
+                email: getTest(emailEdit, email),
+                password: getTest(passwordEdit, password),
+                firstName: getTest(firstNameEdit, firstName),
+                lastName: getTest(lastNameEdit, lastName),
+                age: getTest(ageEdit, age)
+            }
+
+            function getTest(name1, name2) {
+                if (name1.length === 0) {
+                    return name2;
+                    console.log("if else")
+                } else return name1;
+            }
+
+            putMethod = {
+                method: 'PUT', // Method itself
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8' // Indicates the content
+                },
+                body: JSON.stringify(someData) // We send data in JSON format
+            }
+
+            console.log("editUser")
+            url = `http://localhost:8080/admin/${idMain}`;
+        fetch(url, putMethod)
+        .then(response => response.json())
+        .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
+        .catch(err => console.log(err))
+        console.log("test redirect");
+        MainRedirect();
+        }
+
+    )
+    }
+
+    //mainNewUser
+    const register = document.getElementById('MainRegister');
+
+    let url = 'http://localhost:8080/admin/';
+    register.addEventListener('submit', async function (event) {
+        event.preventDefault()
+
+        let email = document.getElementById('MainEmail').value;
+        let password = document.getElementById('MainPassword').value;
+        let firstName = document.getElementById('MainFirstName').value;
+        let lastName = document.getElementById('MainLastName').value;
+        let age = document.getElementById('MainAge').value;
+        console.log(email);
+        console.log(password);
+        console.log(firstName);
+        console.log(lastName);
+        console.log(age);
+        addUser({
+            email: email,
+            password: password,
+            firstName: firstName,
+            lastName: lastName,
+            age: age
+        })
+        MainRedirect();
+    });
+
+    async function addUser(Obj) {
+        let response = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Obj)
+
+
+        })
+        let answer = await response.json();
+        console.log(answer);
+    }
+
+    //mainRedirect
+    function MainRedirect() {
+        console.log('MainRedirect');
+        setTimeout(redirectPage, 200);
+    }
+
+    function redirectPage() {
+        console.log("redirectPage")
+        // document.location.href = 'admin.html'
+        document.location.href = 'http://localhost:8080/api/admin   ';
+        // document.location.href = 'http://localhost:8080/';
+    }
+
+    // mainTable
+    function fetchData() {
+        fetch("http://localhost:8080/admin")
+            .then(response => {
+                if (!response.ok) {
+                    throw Error("error");
+                }
+                // console.log(response.json());
+                return response.json();
+            })
+            .then(data => {
+                // console.log(data);
+                let html = '<div class="container">\n' +
+                    '           <div class="table-responsive table-">\n' +
+                    '              <table class="table table-striped1 table-hover1 table-bordered1 table-condensed">\n' +
+                    '                <thead>\n' +
+                    '                  <tr class="active">\n' +
+                    '                     <th>id</th>\n' +
+                    '                     <th>firstName</th>\n' +
+                    '                     <th>lastName</th>\n' +
+                    '                     <th>age</th>\n' +
+                    '                     <th>email</th>\n' +
+                    '                     <th >Edit</th>\n' +
+                    '                     <th>Delete</th>\n' +
+                    '                  </tr>\n' +
+                    '                </thead>\n' +
+                    '                <tbody>';
+                html = html + data
+                    .map(user => {
+                        return `
+                    <tr>
+                       <td>${user.id}</td>
+                       <td>${user.firstName}</td>
+                       <td>${user.lastName}</td>
+                       <td>${user.age}</td>
+                       <td>${user.email}</td>
+
+                       <td>
+                           <button id="MainEdit" value="value"
+                           onclick="getUserEdit(${user.id},'${user.firstName}','${user.lastName}',${user.age},'${user.email}','${user.password}')"
+                                    class="btn btn-info" data-toggle="modal" data-target="#myModalEdit">Edit</button>
+                       </td>
+                       <td>
+                           <button id="MainDelete" value="value"
+                           onclick="getUserDelete(${user.id},'${user.firstName}','${user.lastName}',${user.age},'${user.email}')"
+                                    class="btn btn-warning" data-toggle="modal" data-target="#myModalDelete">Delete</button>
+                       </td>
+                    </tr>
+                    `;
+                    })
+                    .join("");
+                document.querySelector("#mainTable").insertAdjacentHTML("afterbegin", html);
+            })
+            .catch(err => {
+                console.log(err + " error you ");
+            })
+    }
+
+    fetchData();
+
+</script>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+<!--<script>-->
+<!--   let btn = document.getElementById('btn-success')-->
+<!--   let inpEmail = document.getElementById('MainEmail')-->
+
+<!--   const onChangeEmail = () => {-->
+<!--       console.log(inpEmail.value)-->
+<!--   }-->
+
+<!--   console.log(btn)-->
+<!--    btn.setAttribute('disabled', )-->
+<!-- </script>-->
+</body>
+</html>
